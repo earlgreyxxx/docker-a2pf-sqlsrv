@@ -1,2 +1,6 @@
 # docker-a2pf-sqlsrv
-create docker container for apache2,php-fpm and php-sqlsrv.
+Dockerで下記の開発環境を生成します。
+
+* apache2
+* php-fpm (SQLServerのpdoドライバ)
+* 日本語のロケール

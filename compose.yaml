@@ -1,0 +1,28 @@
+services:
+  apache2:
+    build: ./apache
+    container_name: apache
+    ports:
+      - "18888:80"
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./docroot:/var/www/html
+      - ./var/log/apache2:/var/log/apache2
+      - socket-volume:/var/run/
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    build: 
+      context: ./php
+    container_name: php-fpm
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./docroot:/var/www/html
+      - socket-volume:/var/run/
+
+volumes:
+  socket-volume:
+
