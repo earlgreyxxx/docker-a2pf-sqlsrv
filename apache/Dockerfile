@@ -14,6 +14,9 @@ ENV LC_ALL ja_JP.UTF-8
 #RUN sed -i '/^#LoadModule proxy_fcgi_module/s/^#//g' /usr/local/apache2/conf/httpd.conf
 RUN echo LoadModule proxy_module modules/mod_proxy.so >> /usr/local/apache2/conf/httpd.conf
 RUN echo LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so >> /usr/local/apache2/conf/httpd.conf
+RUN echo LoadModule rewrite_module modules/mod_rewrite.so >> /usr/local/apache2/conf/httpd.conf
+RUN echo LoadModule setenvif_module modules/mod_setenvif.so >> /usr/local/apache2/conf/httpd.conf
+RUN echo LoadModule headers_module modules/mod_headers.so >> /usr/local/apache2/conf/httpd.conf
 
 # サイト設定ファイルをコンテナ内にコピー
 COPY ./vhost.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf

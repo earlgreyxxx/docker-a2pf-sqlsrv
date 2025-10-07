@@ -1,2 +1,4 @@
 *.swp
 /var
+/docroot/*
+!/docroot/index.php

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$1" = "apache" -o "$1" = "php-fpm" ]; then
+	docker exec -it $1 /bin/bash
+else
+	echo 'no available connection point(apache|php-fpm) specified... sorry.'
+fi
